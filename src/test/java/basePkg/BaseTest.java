@@ -27,6 +27,7 @@ public class BaseTest {
 			prop = new Properties();
 			prop.load(fis);
 			
+//			accessing browser property from global properties file and initializing driver
 			String browser = prop.getProperty("browser");
 			if(browser.equalsIgnoreCase("chrome"))
 			{
@@ -47,6 +48,7 @@ public class BaseTest {
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 				driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 				
+//				invoking application
 				driver.get(prop.getProperty("url"));
 			}
 			
@@ -60,6 +62,7 @@ public class BaseTest {
 	@AfterTest
 	public void closeBrowser()
 	{
+//		closing browser
 		if(driver!=null)
 		{
 			driver.close();
